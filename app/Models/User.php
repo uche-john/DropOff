@@ -22,11 +22,14 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+
+
+    public function driver (){
+        return $this->hasOne(Driver::class); //one to one relationship (a usercan only have one driver)
+
+    }
+
+    public function trips(){
+        return $this->hasMany(Trip::class); //one to many relationship (a user can have many trips)
     }
 }
