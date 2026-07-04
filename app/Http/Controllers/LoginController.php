@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Notifications\LoginNeedsVerification;
 
 class LoginController extends Controller
 {
@@ -24,7 +25,7 @@ class LoginController extends Controller
         };
 
         // send an  OTP
-
+        $user -> notify(LoginNeedsVerification::class);
         //return back a response
     }
 }
