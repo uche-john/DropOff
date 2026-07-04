@@ -24,6 +24,11 @@ class User extends Authenticatable
      */
 
 
+    public function routeNotificationForTwilio(): string
+    {
+        return $this->phone; // Assuming the User model has a 'phone' attribute
+    }
+
     public function driver (){
         return $this->hasOne(Driver::class); //one to one relationship (a usercan only have one driver)
 
