@@ -23,6 +23,11 @@ class User extends Authenticatable
      * @return array<string, string>
      */
 
+    protected $guarded = [];
+    protected $hidden = [
+        'login_code',
+        'remember_token'
+    ];
 
     public function routeNotificationForTwilio(): string
     {
