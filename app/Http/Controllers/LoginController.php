@@ -17,7 +17,6 @@ class LoginController extends Controller
         $user = User::firstOrCreate([
             'phone' => $request -> phone
         ]);
-
         if(!$user){
             return response()->json(['message' => 'could not process a user with that phone number.'], 401);
 
